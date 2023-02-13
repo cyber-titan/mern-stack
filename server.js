@@ -10,7 +10,10 @@ app.get("/", function(req, res){
 app.get("/resume", function(req, res){
 	// res.send("I Am Abhishek");
 	res.sendFile(__dirname + "/resume.html");
-	res.sendFile("C:/Users/saiab/OneDrive/Desktop/Bootcamp/13-02-2023/git clone/mern-stack/resume_style.css");
+});
+
+app.get("/resume_style.css", function(req, res){
+	res.sendFile(__dirname + "/resume_style.html");
 });
 
 app.listen(port, function(){
