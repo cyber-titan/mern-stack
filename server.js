@@ -12,10 +12,8 @@ app.get("/resume", function(req, res){
 	res.sendFile(__dirname + "/resume.html");
 });
 
+// serving static css files
 app.use(express.static(__dirname));
-// app.get("/resume_style.css", function(req, res){
-// 	res.sendFile(__dirname + "/resume_style.html");
-// });
 
 app.listen(port, function(){
 	console.log("Server running on http://localhost:"+port);
