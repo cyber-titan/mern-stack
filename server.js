@@ -12,6 +12,7 @@ app.get("/resume", function(req, res){
 	res.sendFile(__dirname + "/resume.html");
 });
 
+app.use(express.static(__dirname));
 app.get("/resume_style.css", function(req, res){
 	res.sendFile(__dirname + "/resume_style.html");
 });
