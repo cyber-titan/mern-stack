@@ -12,6 +12,10 @@ app.get("/resume", function(req, res){
 	res.sendFile(__dirname + "/resume.html");
 });
 
+app.get("/card", function(req, res){
+	res.sendFile(__dirname + "/card.html");
+});
+
 // serving static css files
 app.use(express.static(__dirname));
 
