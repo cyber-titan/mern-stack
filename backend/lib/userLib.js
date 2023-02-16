@@ -15,7 +15,7 @@ module.exports.createFirstUser = async function(callback){
         var user = {
             userName: "abhishek",
             yearOfGraduation: 2024,
-
+            
         };
         var newUser = new userModel(user);
         var result = await newUser.save();

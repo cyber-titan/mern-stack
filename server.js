@@ -36,7 +36,12 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err){
 		// TODO: don't create a user if atleast 1 user in the table
 		userLib.createFirstUser(function(err, res){
 			if(err){
-				console.log(err);
+				// console.log(err);
+				userLib.getAllUsers(function(err, res){
+					if(res[0] != null){
+						console.log("Already " + res[0].userName + " User Exists.");
+					}
+				});
 			}
 			else{
 				console.log(res);
