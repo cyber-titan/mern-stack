@@ -24,6 +24,10 @@ app.get("/card", function(req, res){
 	res.sendFile(__dirname + "/card.html");
 });
 
+app.get("/weather", function(req, res){
+	res.sendFile(__dirname + "/weather.html");
+});
+
 // to avoid some error
 mongoose.set('strictQuery', true);
 // whenever a connection establishes or an error happens it goes inside
