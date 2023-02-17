@@ -75,14 +75,14 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err){
 		// 	}
 		// });
 		
-		userLib.getUsersbyFilter({ userName: "abhi"}, function(err, result){
-			if(err){
-				console.error(err);
-			}
-			else{
-				console.log(result);
-			}
-		});
+		// userLib.getUsersbyFilter({ userName: "abhi"}, function(err, result){
+		// 	if(err){
+		// 		console.error(err);
+		// 	}
+		// 	else{
+		// 		console.log(result);
+		// 	}
+		// });
 
 		app.listen(port, function(){
 			console.log("Server running on http://localhost:"+port);
