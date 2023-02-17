@@ -9,9 +9,8 @@
             width: 18%;
             /* transition: 0.3s; */
             margin: auto;
-            border-radius: 6px;
-            /* display: flex;
-            flex-wrap: wrap; */
+            padding: 9px;
+            border-radius: 25px;
         }
         
         .card:hover{
@@ -20,6 +19,10 @@
         
         .container{
             padding: 2px 16px;
+        }
+
+        .container > h3, p{
+            color: mediumslateblue;
         }
 
         @media(max-width: 540px){
@@ -33,32 +36,34 @@
 <body>
     <br><br><br><br><br><br>
     <div class="card">
-        <img id="userImage" class="profile-picture" src="public/avatar.png" alt="Avatar" style="width: 100%; border-radius: 6px;">
+        <img id="userImage" class="profile-picture" src="public/images/avatar.png" alt="Avatar" style="width: 100%; border-radius: 25px;">
         <div class="container">
-            <h3 id="userTitle"><b>Abhishek Vemuri</b></h3>
+            <h3 id="userTitle"><b>John Doe</b></h3>
             <p id="userDesignation">Engineer & Developer</p>
         </div>
 
-        <button onClick="toggleUser()">click</button>
+        <div align="center">
+            <button onClick="toggleUser()" style="margin: 9px;">click</button>
+        </div>
 
         
     </div>
     <script>
         const userOne = {
-            name: "John Doe"
-            designation: "Engineer"
+            name: "John Doe",
+            designation: "Engineer & Developer",
             image: "/public/images/avatar.png"
         }
         const userTwo = {
-            name: "Jane Doe"
-            designation: "Designer"
-            image: "/public/images/jane doe.png"
+            name: "Jane Doe",
+            designation: "Designer",
+            image: "/public/images/jane doe.jpeg"
         }
 
         let currentIsJohn = true;
         let currentUser = userOne;
 
-        
+        // getting HTML data using id
         let userTitle = document.getElementById("userTitle");
         let userImage = document.getElementById("userImage");
         let userDesignation = document.getElementById("userDesignation");
