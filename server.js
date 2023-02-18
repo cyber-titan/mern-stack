@@ -8,7 +8,11 @@ const app = express();
 const port = process.env.PORT || 5010;
 
 // serving static css files
-app.use(express.static(__dirname));
+const options = {
+    extensions: ['htm', 'html', 'css', 'js', 'ico', 'jpg', 'jpeg', 'png', 'svg'],
+    index: ['index.html'],
+}
+app.use(express.static("public"));
 
 app.get("/", function(req, res){
 	// res.send("I Am Abhishek");
