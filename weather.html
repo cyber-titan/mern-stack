@@ -39,13 +39,21 @@
 
 <body>
     <div class="container main-container">
+        <!-- <div class="dark-mode-toggle">
+            <button type="button" class="btn btn-outline-dark">
+                <i class="fa-solid fa-toggle-large-on"></i>
+            </button><br>
+            <button class="btn btn-outline-success" type="button" id="button-addon2">
+                <i class="fas fa-search fa-xs fa-fw"></i>
+            </button>
+        </div> -->
         <h1>What's The Weather?</h1>
 
         <div id="inputBox" class="input-group mb-3 mt-5">
             <!-- added form-control-lg ==> input size of box increases -->
             <input id="searchBox" type="text" class="form-control form-control-lg" placeholder="Type A City Name">
             <!-- class="btn btn-outline-success" adds green on btn if hovered over -->
-            <button class="btn btn-outline-success" type="button" id="button-addon2">
+            <button onclick="searchButton()" class="btn btn-outline-success" type="button" id="button-addon2">
                 <i class="fas fa-search fa-xs fa-fw"></i>
             </button>
         </div>
@@ -140,6 +148,13 @@
                 searchBox.value = "";
             }
         })
+
+        function searchButton(){
+            var cityName = searchBox.value;
+            getWeatherReport(cityName);
+            // clears city name
+            searchBox.value = "";
+        }
 
         function requestWeatherReport() {
             var cityName = searchBox.value;
