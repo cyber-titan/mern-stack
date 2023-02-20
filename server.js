@@ -32,6 +32,18 @@ app.get("/weather", function(req, res){
 	res.sendFile(__dirname + "/weather.html");
 });
 
+app.get("/todo", function(req, res){
+	res.sendFile(__dirname + "/todo.html");
+});
+
+app.get("/api/todos", function(req, res){
+	res.json([
+		{name: "todo1", isCompleted: true},
+		{name: "todo2", isCompleted: false},
+		{name: "todo3", isCompleted: true},
+	]);
+});
+
 // to avoid some error
 mongoose.set('strictQuery', true);
 // whenever a connection establishes or an error happens it goes inside

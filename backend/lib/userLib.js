@@ -74,3 +74,35 @@ module.exports.getUsersbyFilter = async function(filter,callback) {
         callback(err, null);
     }
 }
+
+                        // TODO LIST userLib
+// get all todos
+module.exports.getAllTodos= async function(callback) {
+    try {
+        var tasks = await userModel.find({});
+        callback(null, tasks);
+    } catch (err) {
+        callback(err, null);
+    }
+}
+
+// get todos by query
+module.exports.getTodosByQuery = async function(filter, callback) {
+    try {
+        var user = await userModel.find(filter);
+        callback(null, user);
+    } catch (err) {
+        callback(err, null);
+    }
+}
+
+// get single todo by id
+// todoModel.find({ _id: id });
+module.exports.getSingleTodoById = async function(taskId, callback) {
+    try {
+        var user = await userModel.find(taskId);
+        callback(null, user);
+    } catch (err) {
+        callback(err, null);
+    }
+}
