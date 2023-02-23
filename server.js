@@ -1,6 +1,7 @@
 // makes sure 'dotenv' file becomes your environment
 require('dotenv').config();
 const userLib = require("./backend/lib/userLib");
+const todoLib = require("./backend/lib/todoLib");
 const mongoose = require("mongoose");
 
 const express = require('express');
@@ -13,6 +14,9 @@ const options = {
     index: ['index.html'],
 }
 app.use(express.static("public"));
+
+// it send data from frontend and puts it into the request.body
+app.use(express.json());
 
 app.get("/", function(req, res){
 	// res.send("I Am Abhishek");
@@ -36,12 +40,49 @@ app.get("/todo", function(req, res){
 	res.sendFile(__dirname + "/todo.html");
 });
 
-app.get("/api/todos", function(req, res){
-	res.json([
-		{name: "todo1", isCompleted: true},
-		{name: "todo2", isCompleted: false},
-		{name: "todo3", isCompleted: true},
-	]);
+app.get("/api/todos", function(req, res) {
+    todoLib.getAllTodos(function(err, todos) {
+        if (err) {
+            res.json({ status: "error", message: err, data: null });
+        } else {
+            res.json({ status: "success", data: todos });
+        }
+    });
+});
+
+app.post("/api/todos", function(req, res) {
+    const todo = req.body;
+    todoLib.createTodo(todo, function(err, dbtodo) {
+        if (err) {
+            res.json({ status: "error", message: err, data: null });
+        } else {
+            res.json({ status: "success", data: dbtodo });
+        }
+    });
+});
+
+app.put(("/api/todos/:todoid"), function(req, res) {
+    const todo = req.body;
+    const todoid = req.params.todoid;
+    todoLib.updateTodoById(todoid, todo, function(err, dbtodo) {
+        if (err) {
+            res.json({ status: "error", message: err, data: null });
+        } else {
+            res.json({ status: "success", data: dbtodo });
+        }
+    });
+});
+
+app.delete(("/api/todos/:todoid"), function(req, res) {
+    const todoid = req.params.todoid;
+    todoLib.deleteTodoById(todoid, function(err, dbtodo) {
+        if (err) {
+            res.json({ status: "error", message: err, data: null });
+        }
+        else {
+            res.json({ status: "success", data: dbtodo });
+        }
+    });
 });
 
 // to avoid some error
