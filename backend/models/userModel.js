@@ -1,4 +1,6 @@
-const mongoose=require("mongoose");
+// const mongoose=require("mongoose");
+// OR
+import mongoose from "mongoose";
 
 // mongodb user schema
 const userSchema = new mongoose.Schema({
@@ -8,4 +10,6 @@ const userSchema = new mongoose.Schema({
     isDeleted: {type:Boolean, default: false}
 });
 
-module.exports = mongoose.model("user", userSchema);
+// module.exports = mongoose.model("user", userSchema);
+const userModel = mongoose.model("user", userSchema);//same as above
+export default userModel;

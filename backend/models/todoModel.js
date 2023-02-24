@@ -10,7 +10,9 @@
 
 // module.exports = mongoose.model("task", taskSchema);
 
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+// OR
+import mongoose from "mongoose";
 
 const todoSchema = new mongoose.Schema({
     taskName: {type: String, required: true},
@@ -19,4 +21,6 @@ const todoSchema = new mongoose.Schema({
     createdAt: {type: Date, default: Date.now}
 });
 
-module.exports = mongoose.model("todo",todoSchema);
+// module.exports = mongoose.model("todo",todoSchema);
+const todoModel = mongoose.model("todo",todoSchema);//same as above
+export default todoModel;
