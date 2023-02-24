@@ -16,7 +16,9 @@ async function createTodoFunction(){
     // clears inputBox
     if(inputbox != ""){
         inputbox.value = "";
+
     } 
+
 }
 
 async function createTodo(text){
