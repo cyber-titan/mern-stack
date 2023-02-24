@@ -9,7 +9,7 @@ import {config} from "dotenv";
 config();
 // const todoLib = require("./backend/lib/todoLib");
 
-import * as todoLib from "./backend/Lib/todoLib.js";
+import * as todoLib from "./backend/lib/todoLib.js";
 // const mongoose = require("mongoose");
 import mongoose from "mongoose";
 // const express = require('express');
