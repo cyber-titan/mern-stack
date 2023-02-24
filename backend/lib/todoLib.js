@@ -1,7 +1,7 @@
 // const todoModel = require("../models/todoModel");
 // OR
 import mongoose from "mongoose";
-import todoModel from "../models/todoModel.js"
+import todoModel from "../models/todoModel.js";
 
 /*
 1. createTodo

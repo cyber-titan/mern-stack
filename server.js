@@ -25,7 +25,7 @@ const options = {
     extensions: ['htm', 'html', 'css', 'js', 'ico', 'jpg', 'jpeg', 'png', 'svg'],
     index: ['index.html'],
 }
-app.use(express.static("public"));
+app.use(express.static("public", options));
 
 // it send data from frontend and puts it into the request.body
 app.use(express.json());
