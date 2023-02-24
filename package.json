@@ -1,10 +1,11 @@
 {
   "name": "mern-web-dev",
+  "type": "module",
   "version": "1.0.0",
   "description": "My first web project",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
