@@ -3,9 +3,21 @@ document.getElementById("loader").style.display = "block";
 const inputbox=document.getElementById("inputBox");
 inputbox.addEventListener("keydown",function(event){
      if(event.keyCode==13){
-            createTodo(inputbox.value)
-     }
-});
+            createTodo(inputbox.value);
+            // clears inputBox
+            if(inputbox != ""){
+                inputbox.value = "";
+            }
+        }
+    });
+    
+async function createTodoFunction(){
+    createTodo(inputbox.value);
+    // clears inputBox
+    if(inputbox != ""){
+        inputbox.value = "";
+    }
+}
 
 async function createTodo(text){
     await fetch("/api/todos",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({taskName:text})});
